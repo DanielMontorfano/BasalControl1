@@ -55,7 +55,7 @@ class FichaController extends Controller
         $ficha->materialSiNo=$request->materialSiNo;
         $ficha->visitasector=$request->visitasector;
         $ficha->provieneDe=$request->provieneDe;
-        $ficha->contactoriogrande1=$request->contactoriogrande1;
+        $ficha->contactoriogrande1=$request->A_quien;
         $ficha->TipoDeCarga=$request->TipoDeCarga;
         $ficha->cargaPara=$request->cargaPara;
 
@@ -75,13 +75,16 @@ class FichaController extends Controller
         $ficha->save();
         $nuevaFicha = Ficha::latest('id')->first();
         $id=$nuevaFicha->id;
+        $provieneDe=$nuevaFicha->provieneDe;
+        $contactoriogrande1=$nuevaFicha->contactoriogrande1;
+
        // $personas=Persona::orderBy('created_at', 'desc')->take(5)->get();
        $personas = Persona::where('ficha_id', $id)
                     ->orderBy('created_at', 'desc')
                     ->take(5)
                     ->get();
         //return $nuevaFicha->id;
-        return view ('personas.create', compact('personas','id')); //se puede omitir ->id, igual funciona
+        return view ('personas.create', compact('personas','id', 'provieneDe', 'contactoriogrande1')); //se puede omitir ->id, igual funciona
         return view('equipos.show', compact('id','equipo','repuestos', 'plans','equiposB')); 
         return 'EStoy en STORE';
     }

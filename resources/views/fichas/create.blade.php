@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section('title', 'Dashboard')
+@section('title', 'Ficha')
 
 
 @section('css')
@@ -8,12 +8,13 @@
   
     .container {
   display: flex;
-  width: 700px;
+  width: auto;
   justify-content: center;
-  background-image: linear-gradient(to right top, #0c0b0b6f, #070707, #13050258, #0b0a0b, #0f0a0c);
+  
+  /*background-image: linear-gradient(to right top, #ad14146f, #070707, #13050258, #0b0a0b, #0f0a0c);*/
  
   border-color: black; 
-  
+ 
   /*height: 100vh;*/
 }
 
@@ -27,11 +28,12 @@ select {
  
   border-radius: 5px;
   background-color: #b0b0ac;
-  margin-left: 15px;
-  margin-right: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
   padding: 3px; /* Añade un poco de espacio alrededor del texto dentro del select */
   font-size: 14px; /* Cambia el tamaño del texto dentro del select */
-  border: 2px Quita el borde predeterminado del select */
+  border: 2px; /* Quita el borde predeterminado del select */
+  
 }
 
 mi.input {
@@ -44,11 +46,11 @@ mi.input {
  border: 1px; /*Quita el borde predeterminado del select */
 }
 .form-control.custom {
-  background-color:   #787874;
+  background-color:#dbdbd3;
   border-color: #3d3b3b;
   color: #111010;
-  margin-right: 5px;
-  margin-left: 5px;
+  margin-right: 3px;
+  margin-left: 3px;
   
 }
 
@@ -74,8 +76,9 @@ mi.input {
        /*width:400px; */
        border-radius:10px;
        color:rgb(243, 230, 230);
-       background-image: linear-gradient(to right top, #30141e6f, #0b0a0b, #21080358, #1d181a, #1e191b);
-   }
+       background-image: linear-gradient(to right top, #0e3761, #6d8198,#0e3761, #7b91ab);
+       /*background: linear-gradient(to left, #0e3761, #9cbfe7);*/
+      }
   
    .card-img-top {
       width: 100%;
@@ -84,6 +87,10 @@ mi.input {
       object-fit:  fill /*cover*/;
   }
 
+  .form-group label {
+  display: block;
+
+}
 
 </style>
 @stop
@@ -94,7 +101,7 @@ mi.input {
 
 @section('content')
 <div class="container ">
-  <form id="nuevaFicha"  action="{{route('fichas.store')}}" method="POST" class="form-horizontal" STYLE="background: linear-gradient(to right,#495c5c,#030007);">
+  <form id="nuevaFicha"  action="{{route('fichas.store')}}" method="POST"  >
     @csrf  {{-- Envía un token de seguridad. Siempre se debe poner!!! sino no funca --}}
     <div class="card  " >
       <div class="card-body" align='center'>
@@ -102,10 +109,10 @@ mi.input {
               <h2>Datos de vehiculo</h2> 
             </div>  
     <div class="row" >
-          <div class="col">
-            
-            <select id="tipoVehiculo" name="tipoVehiculo" class="form-select">
-              <option value="Vehículo">Vehículo</option>
+      <div class="col col-md-3 form-group">
+            <label class="control-label" for="tipoVehiculo">Vehículo</label> 
+            <select id="tipoVehiculo" name="tipoVehiculo" cclass="form-select mb-3">
+             
               <option value="Auto">Auto</option>
               <option value="Pick-Up">Pick-Up</option>
               <option value="Camión">Camión</option>
@@ -114,45 +121,42 @@ mi.input {
               <option value="Otro">Otro</option>
             </select>
           </div>
-          <div class="col">
-            <select id="estadoVehiculo" name="estadoVehiculo" class="form-select">
-              <option value="Estado">Estado</option>
+          <div class="col col-md-3 form-group">
+            <label class="control-label" for="estadoVehiculo">Estado</label> 
+            <select id="estadoVehiculo" name="estadoVehiculo" class="form-select mb-3">
+              
               <option value="Bueno">Bueno</option>
               <option value="Regular">Regular</option>
               <option value="Malo">Malo</option>
             </select>
           </div>
-          <div  class="col">
-            <select id="revTecnica" name="revTecnica" class="form-select">
-              <option value="Rev. técn.">Rev. técn.</option>
+          <div class="col col-md-3 form-group">
+            <label class="control-label" for="revTecnica">Rev. técn.</label>
+            <select id="revTecnica" name="revTecnica" class="form-select mb-3">
+              
               <option value="Si">Si</option>
               <option value="No">No</option>
             </select>
           </div>
-          <div  class="col">
-            <select id="segVehiculo" name="segVehiculo" class="form-select">
-              <option value="Seg. vehic.">Seg. vehic.</option>
+          <div class="col col-md-3 form-group">
+            <label class="control-label" for="segVehiculo">Seg. vehic.</label>
+            <select id="segVehiculo" name="segVehiculo" class="form-select mb-3">
+             
               <option value="Si">Si</option>
               <option value="No">No</option>
             </select>
           </div>
-            <div class="col">
-              <select id="segPersonal" name="segPersonal" class="form-select">
-                <option value="Seg. personal">Seg. personal</option>
-                <option value="Si">Si</option>
-                <option value="No">No</option>
-              </select>
-            </div>
+            
           </div> {{-- 1ra fila del card --}}
            
           <div class="row" >  
-                <div class="col">
-                  <div class="form-select">
+            <div class="col col-md-3 form-group">
+                  <div class="form-select mb-3">
                   <input id="patentevehiculo" name="patentevehiculo" title="Patente del vehículo" type="text" class="mi-input form-control rounded custom" placeholder="Patente vehic.">
                 </div>
             </div>
-            <div class="col">
-              <div class="form-select">
+            <div class="col col-md-3 form-group">
+              <div class="form-select mb-3">
                 <input id="patenteacoplado" name="patenteacoplado" title="Patente del semi ó coplado" type="text" class="mi-input form-control rounded custom" placeholder="Patente chasis">
               </div>
             </div> 
@@ -170,26 +174,36 @@ mi.input {
               <h2>Datos generales</h2> 
             </div>  
     <div class="row" >
-          <div class="col col-md-4">
+          <div class="col col-md-3 form-group">
             <label class="control-label" for="tipoIngreso">Ingreso</label> 
-            <select id="tipoIngreso" name="tipoIngreso" class="form-select" >
+            <select id="tipoIngreso" name="tipoIngreso"  class="form-select mb-3" >
               
               <option value="Vista">Visita</option>
               <option value="Proveedor">Proveedor</option>
             </select>
           </div>
-          <div class="col col-md-4">
+
+          <div class="col col-md-3 form-group">
+            <label class="control-label" for="Seguro Per.">Seguro personal</label> 
+            <select id="segPersonal" name="Seguro personal" class="form-select mb-3">
+             
+              <option value="Si">Si</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+
+          <div class="col col-md-3 form-group">
             <label class="control-label" for="materialSiNo">Materiales</label> 
-            <select id="materialSiNo" name="materialSiNo" class="form-select" >
+            <select id="materialSiNo" name="materialSiNo" class="form-select mb-3" >
               <option value="No">No</option>
               <option value="Si">Si</option>
             
             </select>
           </div>
-          <div class="col col-md-4">
+          <div class="col col-md-3 form-group">
             <label class="control-label" for="visitasector">Sector</label> 
-            <select id="visitasector" name="visitasector" class="form-select">
-              <option value="Administración">Administación</option>
+            <select id="visitasector" name="visitasector" class="form-select mb-3">
+              <option value="Administ.">Administración</option>
               <option value="Of. téncnica">Of. técnica</option>
               <option value="Of. pesonal">Of. personal</option>
               <option value="Dep. azúcar">Dep. azúcar</option>
@@ -256,13 +270,16 @@ mi.input {
                 </div>
             </div>
       </div>
+      
     </div>
-
-    <div class="form-group">
+     
+    
+     <div class="form-group d-flex justify-content-center">
       {{-- Boton no visible --}}
-      <button id="enviar" form="nuevaFicha" class="btn btn-primary" type="submit" STYLE=" background: linear-gradient(to right,#495c5c,#030007);">Enviar</button> 
+      <button id="enviar" form="nuevaFicha" form="nuevoMatrial" class="btn btn-info  boton" type="submit" >Guardar y continuar</button> 
      </div>
   </form>
+  
 </div> {{-- Container --}}
 @stop
 

@@ -40,12 +40,18 @@ class PersonaController extends Controller
         $nuevoId = Ficha::latest('id')->first();
         $nuevaFicha=Ficha::find($nuevoId);
         $id=$nuevaFicha->id;
+        $provieneDe=$nuevaFicha->provieneDe;
+        $contactoriogrande1=$nuevaFicha->contactoriogrande1;
         //$personas=Persona::orderBy('created_at', 'desc')->take(5)->get();
         $personas = Persona::where('ficha_id', $id)
                     ->orderBy('created_at', 'desc')
                     ->take(5)
                     ->get();
        // return $personasTodos;
+
+       
+    
+       return view ('personas.create', compact('personas','id', 'provieneDe', 'contactoriogrande1'));
         return view('personas.create', compact('personas',$id));
     }
 
@@ -70,6 +76,14 @@ class PersonaController extends Controller
         ->orderBy('created_at', 'desc')
         ->take(5)
         ->get();
+        
+        $nuevaFicha = Ficha::latest('id')->first();
+        $id=$nuevaFicha->id;
+        $provieneDe=$nuevaFicha->provieneDe;
+        $contactoriogrande1=$nuevaFicha->contactoriogrande1;
+    
+       return view ('personas.create', compact('personas','id', 'provieneDe', 'contactoriogrande1'));
+        
         return view ('personas.create', compact('personas','id')); //se puede omitir ->id, igual funciona
         return redirect()->route('personas.create'); //se puede omitir ->id, igual funciona
         return 'EStoy en STORE';

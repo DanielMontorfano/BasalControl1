@@ -117,7 +117,21 @@ class MaterialController extends Controller
             
             return redirect()->route('personas.index');
             }  //Sale de retorno3
-            
+             
+          if($selector=="retorno4"){ //proviene de salida4 reperesenta con vehiculo
+            $persona = Persona::find($personaId);
+            $persona->ingreso='salió'; //Es para indicar que la persona salió s/materiales caminando
+            $persona -> save();
+
+            //Aqui sale vehiculo!!!!
+            $ficha = Ficha::find($fichaId);
+            $ficha->ingreso='salió'; //Es para indicar que la persona salió con vehiculo y s/materiales 
+            $ficha-> save();
+
+
+            return redirect()->route('personas.index');
+
+            } //Sale de retorno3
 
         
         

@@ -60,17 +60,23 @@
   background-image: url('{{ asset('iconos/sinCaja.svg') }}');
 }
 
+  h6 {
+    text-align: center;
+    font-size: 50px;
+    background: -webkit-linear-gradient(rgb(4, 83, 148), rgb(225, 225, 206));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
 
+  
 </style>
 {{-- https://datatables.net/ **IMPORTANTE PLUG IN PARA LAS TABLAS --}}
 {{-- Para que sea responsive se agraga la tercer libreria --}}
 {{-- Todo lo de plantilla --}}
 @endsection
 @section('content_header')
-<h6 STYLE="text-align:center; font-size: 30px;
-background: -webkit-linear-gradient(rgb(1, 103, 71), rgb(239, 236, 217));
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;">Listado de todos los equipos</h6>
+<h6>Vista general de ingresos</h6>
 @stop
 @section('content')
 
@@ -78,13 +84,11 @@ background: -webkit-linear-gradient(rgb(1, 103, 71), rgb(239, 236, 217));
 <h1></h1>
 {{-- https://datatables.net/ **IMPORTANTE PLUG IN PARA LAS TABLAS --}}
 {{-- <a href="/Equipos/crear" > Crear curso</a> **Laravel no recomienda direccionar asi--}}
-
-<div class="card border-primary " style="background: linear-gradient(to left,#495c5c,#030007); ">
+<section style="padding-bottom:60px; ">
+<div class="card border-primary " style="background: linear-gradient(to right, #0e3761, #9cbfe7 );">
 <div class="card-body"  style="max-width: 95;">
 <div class="text-white card-body "  style="max-width: 95;">
-<p ><a  class="text-white " href={{route('personas.create')}}> Crear equipo</a></p> 
-
-   
+ 
 
 <table id="listado" class="table  table-striped table-success  table-hover border-4" >
     <thead class="table-dark" >
@@ -166,11 +170,18 @@ background: -webkit-linear-gradient(rgb(1, 103, 71), rgb(239, 236, 217));
         @endforeach
     </tbody>
 </table>
+
 </div>
 </div>
 </div>
+
+</section>
+
 {{-- aqui Todos los script ver plantilla--}}
+@include('partials.footer')
+
 @endsection
+
 @section('js')
     <script> console.log('Hi!'); </script>
 @stop

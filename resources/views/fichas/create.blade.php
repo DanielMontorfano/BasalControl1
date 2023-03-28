@@ -91,16 +91,25 @@ mi.input {
   display: block;
 
 }
-
+h6 {
+    text-align: center;
+    font-size: 50px;
+    background: -webkit-linear-gradient(rgb(4, 83, 148), rgb(225, 225, 206));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
 </style>
 @stop
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h6>Permiso de ingreso y egreso IRG S.A.</h6>
 @stop
 
 @section('content')
+<section style="padding-bottom:60px; ">
 <div class="container ">
+
   <form id="nuevaFicha"  action="{{route('fichas.store')}}" method="POST"  >
     @csrf  {{-- Envía un token de seguridad. Siempre se debe poner!!! sino no funca --}}
     <div class="card  " >
@@ -281,6 +290,7 @@ mi.input {
   </form>
   
 </div> {{-- Container --}}
+</section>
 @stop
 
 

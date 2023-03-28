@@ -29,12 +29,12 @@ $(document).ready(function() {
 
         dom: 'Brftilp',       
         buttons:[ 
-			{
+			/*{
 				extend:    'excelHtml5',
 				text:      '<i class="fas fa-file-excel"></i> ',
 				titleAttr: 'Exportar a Excel',
 				className: 'btn btn-success'
-			},
+			},*/
 			{
 				extend:    'pdfHtml5',
 				text:      '<i class="fas fa-file-pdf"></i> ',
@@ -45,7 +45,7 @@ $(document).ready(function() {
 				extend:    'print',
 				text:      '<i class="fa fa-print"></i> ',
 				titleAttr: 'Imprimir',
-				className: 'btn btn-info'
+				className: 'btn btn-success'
 			},
 		],	
 		

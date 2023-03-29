@@ -1,11 +1,10 @@
 @extends('adminlte::page')
 @section('title', 'Personas')
-
-
-
 @section('css')
 
 <style>
+
+
   #listado {
     background: linear-gradient(to left, #0e3761, #9cbfe7);
 }
@@ -76,7 +75,7 @@
 {{-- Todo lo de plantilla --}}
 @endsection
 @section('content_header')
-<h6>Vista general de ingresos</h6>
+<h6>Permiso de ingreso y egreso IRG S.A.</h6>
 @stop
 @section('content')
 
@@ -84,10 +83,10 @@
 <h1></h1>
 {{-- https://datatables.net/ **IMPORTANTE PLUG IN PARA LAS TABLAS --}}
 {{-- <a href="/Equipos/crear" > Crear curso</a> **Laravel no recomienda direccionar asi--}}
-<section style="padding-bottom:60px; ">
+<section style="padding-bottom:10px; ">
 <div class="card border-primary " style="background: linear-gradient(to right, #0e3761, #9cbfe7 );">
-<div class="card-body"  style="max-width: 95;">
-<div class="text-white card-body "  style="max-width: 95;">
+<div class="card-body"  style="max-width: 100%;">
+<div class="text-white card-body "  style="max-width: 100%;">
  
 
 <table id="listado" class="table  table-striped table-success  table-hover border-4" >
@@ -174,16 +173,17 @@
 </div>
 </div>
 </div>
-
+@include('partials.footer')
 </section>
 
 {{-- aqui Todos los script ver plantilla--}}
-@include('partials.footer')
+
 
 @endsection
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+
+
 @stop
 
 

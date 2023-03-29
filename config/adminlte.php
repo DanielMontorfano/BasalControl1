@@ -191,7 +191,7 @@ return [
     |
     */
 
-    'classes_body' => '',
+    'classes_body' => 'sidebar-hidden', /*Esconde la barra lateral MONTORFANO*/
     'classes_brand' => 'bg-white',
     'classes_brand_text' => 'text-danger',
     'classes_content_wrapper' => 'bg-dark',
@@ -216,7 +216,7 @@ return [
     */
 
     'sidebar_mini' => 'lg',
-    'sidebar_collapse' => false,
+    'sidebar_collapse' => true,
     'sidebar_collapse_auto_size' => false,
     'sidebar_collapse_remember' => false,
     'sidebar_collapse_remember_no_transition' => true,

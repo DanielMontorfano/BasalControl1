@@ -60,11 +60,11 @@
 @stop
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1 style="text-align: center; padding-bottom:40px; color: #098b8b; ">Datos personales</h1>
 @stop
 
 @section('content')
-    <p>edit personas</p>
+   
 
     <div class="container card"> {{-- container principal --}}
                     <div class="mi-titulo">
@@ -140,6 +140,7 @@
                     </div>
         </div>  {{-- div del row1 Principal --}}
     </div> {{-- div del container Principal--}}
+    
 @stop
 
 
